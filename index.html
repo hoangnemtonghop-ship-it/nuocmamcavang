@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nước Mắm Cá Vàng - Nước mắm truyền thống được sản xuất tại Làng Sa Châu, Giao Hưng, Ninh Bình">
-    <meta name="keywords" content="nước mắm, nước mắm cá vàng, nước mắm truyền thống, Sa Châu">
-    <title>Nước Mắm Cá Vàng - Nước Mắm Truyền Thống Chất Lượng Cao</title>
+    <meta name="description" content="Nước Mắm Cá Vàng - Nước mắm truyền thống được sản xuất tại Làng Sa Châu, Giao Hưng, Ninh Bình. 100% tự nhiên, không chất bảo quản.">
+    <meta name="keywords" content="nước mắm, nước mắm cá vàng, nước mắm truyền thống, Sa Châu, Ninh Bình">
+    <title>Nước Mắm Cá Vàng - Tinh Túy Từ Làng Sa Châu</title>
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        // Thay YOUR_FACEBOOK_PIXEL_ID bằng pixel ID thực tế
+        fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_FACEBOOK_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_TAG_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GOOGLE_TAG_ID');
+    </script>
+
+    <!-- TikTok Pixel -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+            ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],
+            ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+            for(var i=0;i<ttq.methods.length;++i)ttq.setAndDefer(ttq,ttq.methods[i]);
+            ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<e.length;n++)e[n].call(ttq);return ttq},
+            ttq.load=function(e,t){var n="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],
+            ttq._i[e].push({pixelId:e,config:t}),ttq._t=ttq._t||{},ttq._t[e]=new Image,
+            ttq._t[e].src=n+"?sdkid="+e+"&lib="+t};
+            ttq.load('YOUR_TIKTOK_PIXEL_ID');
+            ttq.page();
+        }(window,document,'ttq');
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -13,18 +55,29 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #C41E3A;
+            --primary-gold: #D4AF37;
+            --dark-red: #8B1428;
+            --light-gold: #F4E4C1;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #F9F7F4;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
         }
 
+        /* Header */
         header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -40,7 +93,7 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -53,8 +106,9 @@
 
         nav {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -62,41 +116,88 @@
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s;
+            font-size: 14px;
         }
 
         nav a:hover {
             opacity: 0.8;
+            color: var(--primary-gold);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .phone-btn {
+            background-color: var(--primary-gold);
+            color: var(--primary-red);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
 
+        .phone-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+            font-weight: 600;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 30px;
             opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #FFD700;
-            color: #8B4513;
+            background-color: var(--primary-gold);
+            color: var(--primary-red);
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -104,13 +205,33 @@
             font-size: 16px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
+        .cta-button-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
         .section {
             padding: 60px 20px;
             background-color: white;
@@ -121,182 +242,222 @@
 
         .section h2 {
             font-size: 36px;
-            color: #8B4513;
+            color: var(--primary-red);
             margin-bottom: 30px;
             text-align: center;
-            border-bottom: 3px solid #FFD700;
+            border-bottom: 3px solid var(--primary-gold);
             padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: var(--primary-red);
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
 
         .section p {
             font-size: 16px;
             line-height: 1.8;
-            color: #555;
+            color: var(--text-light);
             margin-bottom: 15px;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid #FFD700;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            color: #8B4513;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .feature-card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .products {
+        /* Products Grid */
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 40px;
         }
 
         .product-card {
-            background: white;
-            border: 2px solid #FFD700;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
             padding: 25px;
+            border-radius: 10px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 2px 10px rgba(196, 30, 58, 0.1);
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.2);
         }
 
         .product-icon {
-            font-size: 50px;
+            font-size: 48px;
             margin-bottom: 15px;
         }
 
         .product-card h3 {
-            color: #8B4513;
+            color: var(--primary-red);
             margin-bottom: 10px;
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .product-card p {
-            color: #666;
+            color: var(--text-light);
+            font-size: 14px;
             margin-bottom: 15px;
         }
 
         .price {
-            font-size: 24px;
-            color: #FFD700;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 15px;
+            color: var(--primary-red);
+            margin: 15px 0;
         }
 
-        .about {
-            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
-        }
-
-        .contact-section {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-            color: white;
+        /* Video Section */
+        .video-section {
             text-align: center;
+            margin: 40px 0;
         }
 
-        .contact-section h2 {
+        .video-container {
+            max-width: 400px;
+            margin: 30px auto;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Form */
+        .order-form {
+            background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid var(--primary-gold);
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 5px rgba(196, 30, 58, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            border-bottom-color: #FFD700;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
         }
 
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        /* Contact Section */
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
+            background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
+            padding: 30px;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 2px solid var(--primary-gold);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
         }
 
         .contact-item h3 {
-            margin-bottom: 10px;
+            color: var(--primary-red);
+            margin-bottom: 15px;
             font-size: 18px;
         }
 
-        .contact-item p {
-            font-size: 16px;
-            opacity: 0.95;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #FFD700;
+        .contact-item a {
+            color: var(--primary-gold);
             text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
         }
 
-        .footer-links a:hover {
-            opacity: 0.8;
+        .contact-item a:hover {
+            color: var(--primary-red);
         }
 
-        .footer-bottom {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #555;
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
             font-size: 14px;
-            opacity: 0.8;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
             }
 
             .hero p {
@@ -305,17 +466,52 @@
 
             nav {
                 gap: 15px;
-                font-size: 14px;
+            }
+
+            nav a {
+                font-size: 12px;
             }
 
             .section h2 {
                 font-size: 28px;
             }
 
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+
+            .order-form {
+                padding: 25px;
+            }
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            margin-left: 0;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--primary-gold);
+            font-size: 15px;
+        }
+
+        .features-list li:before {
+            content: "✓ ";
+            color: var(--primary-red);
+            font-weight: bold;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -328,87 +524,24 @@
                 <span>Nước Mắm Cá Vàng</span>
             </div>
             <nav>
+                <a href="#home">Trang Chủ</a>
                 <a href="#products">Sản Phẩm</a>
                 <a href="#about">Về Chúng Tôi</a>
                 <a href="#contact">Liên Hệ</a>
-                <a href="/terms-of-service">Điều Khoản</a>
-                <a href="/privacy-policy">Bảo Mật</a>
+                <a href="tel:0867678527" class="phone-btn">☎ 0867 678 527</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>🐠 Nước Mắm Cá Vàng</h1>
-            <p>Nước mắm truyền thống chất lượng cao từ Làng Sa Châu</p>
-            <p style="font-size: 16px; opacity: 0.9; margin-bottom: 30px;">Sản xuất theo công thức truyền thống, không chất bảo quản, 100% tự nhiên</p>
-            <a href="#products" class="cta-button">Khám Phá Sản Phẩm</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Tại Sao Chọn Nước Mắm Cá Vàng?</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🏭</div>
-                    <h3>Truyền Thống</h3>
-                    <p>Công thức nấu ướp được truyền lại qua nhiều thế hệ, giữ nguyên hương vị xưa</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>Chất Lượng</h3>
-                    <p>Chọn lọc cá tươi sạch, không chất bảo quản, 100% tự nhiên</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌾</div>
-                    <h3>Lên Men Tự Nhiên</h3>
-                    <p>Lên men theo phương pháp truyền thống, mang lại hương vị đặc biệt</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Được Yêu Thích</h3>
-                    <p>Được tin tưởng bởi hàng nghìn gia đình Việt Nam</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="section" id="products">
-        <div class="container">
-            <h2>Sản Phẩm Của Chúng Tôi</h2>
-            <div class="products">
-                <div class="product-card">
-                    <div class="product-icon">🍶</div>
-                    <h3>Nước Mắm 500ml</h3>
-                    <p>Chai nhỏ gọn, tiện lợi cho gia đình nhỏ hoặc thử nghiệm</p>
-                    <div class="price">50.000 - 65.000 đ</div>
-                    <p style="font-size: 13px; color: #999;">Giá có thể thay đổi theo thị trường</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🍶</div>
-                    <h3>Nước Mắm 1 Lít</h3>
-                    <p>Kích thước tiêu chuẩn, phù hợp cho gia đình trung bình</p>
-                    <div class="price">100.000 - 130.000 đ</div>
-                    <p style="font-size: 13px; color: #999;">Giá có thể thay đổi theo thị trường</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🍶</div>
-                    <h3>Nước Mắm 1 Lít (Đặc Biệt)</h3>
-                    <p>Chất lượng cao nhất, lên men lâu, hương vị đậm đà</p>
-                    <div class="price">130.000 - 150.000 đ</div>
-                    <p style="font-size: 13px; color: #999;">Giá có thể thay đổi theo thị trường</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🎁</div>
-                    <h3>Combo 2 Chai</h3>
-                    <p>Tiết kiệm hơn khi mua combo, tặng bạn bè hoặc gia đình</p>
-                    <div class="price">200.000 - 250.000 đ</div>
-                    <p style="font-size: 13px; color: #999;">Giá có thể thay đổi theo thị trường</p>
-                </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Nước Mắm Cá Vàng</h1>
+            <p class="subtitle">Tinh Túy Từ Làng Sa Châu</p>
+            <p>Nước mắm truyền thống chất lượng cao, công thức được truyền lại qua nhiều thế hệ, 100% tự nhiên, không chất bảo quản.</p>
+            <div class="cta-buttons">
+                <a href="#products" class="cta-button">Khám Phá Sản Phẩm</a>
+                <a href="tel:0867678527" class="cta-button cta-button-outline">Gọi Ngay</a>
             </div>
         </div>
     </section>
@@ -417,20 +550,101 @@
     <section class="section about" id="about">
         <div class="container">
             <h2>Về Nước Mắm Cá Vàng</h2>
-            <p>Nước Mắm Cá Vàng là sản phẩm nước mắm truyền thống được sản xuất tại Làng Sa Châu, Giao Hưng, Ninh Bình - một vùng đất có truyền thống sản xuất nước mắm lâu đời.</p>
+            <p>Nước Mắm Cá Vàng là sản phẩm nước mắm truyền thống được sản xuất tại <strong>Làng Sa Châu, Giao Hưng, Ninh Bình</strong> - một vùng đất có truyền thống sản xuất nước mắm lâu đời.</p>
             
             <p>Chúng tôi sử dụng công thức nấu ướp được truyền lại qua nhiều thế hệ, kết hợp với những nguyên liệu tươi sạch được chọn lọc kỹ lưỡng. Mỗi chai nước mắm đều trải qua quá trình lên men tự nhiên, không sử dụng bất kỳ chất bảo quản hay hóa chất nhân tạo nào.</p>
             
-            <p>Hương vị đặc trưng của Nước Mắm Cá Vàng không chỉ làm tăng thêm hương vị cho các món ăn, mà còn mang theo những ký ức về ẩm thực truyền thống Việt Nam. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao nhất.</p>
+            <p>Hương vị đặc trưng của Nước Mắm Cá Vàng không chỉ làm tăng thêm hương vị cho các món ăn, mà còn mang theo những ký ức về ẩm thực truyền thống Việt Nam.</p>
 
-            <h3 style="color: #8B4513; margin-top: 30px; margin-bottom: 15px;">Cam Kết Của Chúng Tôi</h3>
-            <ul style="margin-left: 20px; color: #666;">
-                <li style="margin-bottom: 10px;">✓ 100% tự nhiên, không chất bảo quản</li>
-                <li style="margin-bottom: 10px;">✓ Công thức truyền thống được bảo vệ</li>
-                <li style="margin-bottom: 10px;">✓ Lên men tự nhiên, đạt tiêu chuẩn chất lượng</li>
-                <li style="margin-bottom: 10px;">✓ Hỗ trợ khách hàng tận tâm</li>
-                <li style="margin-bottom: 10px;">✓ Giao hàng nhanh, an toàn</li>
+            <h3>Cam Kết Của Chúng Tôi</h3>
+            <ul class="features-list">
+                <li>100% tự nhiên, không chất bảo quản</li>
+                <li>Công thức truyền thống được bảo vệ</li>
+                <li>Lên men tự nhiên, đạt tiêu chuẩn chất lượng</li>
+                <li>Hỗ trợ khách hàng tận tâm</li>
+                <li>Giao hàng nhanh, an toàn</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <h2>Sản Phẩm Của Chúng Tôi</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🍶</div>
+                    <h3>Nước Mắm 500ml</h3>
+                    <p>Chai nhỏ gọn, tiện lợi cho gia đình nhỏ hoặc thử nghiệm</p>
+                    <div class="price">60.000₫</div>
+                    <a href="#order" class="cta-button">Đặt Hàng</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍶</div>
+                    <h3>Nước Mắm 1 Lít</h3>
+                    <p>Kích thước tiêu chuẩn, phù hợp cho gia đình trung bình</p>
+                    <div class="price">115.000₫</div>
+                    <a href="#order" class="cta-button">Đặt Hàng</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍶</div>
+                    <h3>Nước Mắm 1L (Đặc Biệt)</h3>
+                    <p>Chất lượng cao nhất, lên men lâu, hương vị đậm đà</p>
+                    <div class="price">140.000₫</div>
+                    <a href="#order" class="cta-button">Đặt Hàng</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section video-section">
+        <div class="container">
+            <h2>Xem Video Giới Thiệu</h2>
+            <p>Khám phá quy trình sản xuất nước mắm truyền thống</p>
+            <div class="video-container">
+                <!-- Thay link YouTube/TikTok/Facebook của bạn vào đây -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="section" id="order">
+        <div class="container">
+            <h2>Đặt Hàng Ngay</h2>
+            <form class="order-form" onsubmit="handleOrderSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Tên Khách Hàng *</label>
+                    <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa Chỉ Giao Hàng *</label>
+                    <textarea id="address" name="address" required placeholder="Nhập địa chỉ giao hàng"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product">Chọn Sản Phẩm *</label>
+                    <select id="product" name="product" required>
+                        <option value="">-- Chọn sản phẩm --</option>
+                        <option value="Nước Mắm 500ml - 60.000₫">Nước Mắm 500ml - 60.000₫</option>
+                        <option value="Nước Mắm 1 Lít - 115.000₫">Nước Mắm 1 Lít - 115.000₫</option>
+                        <option value="Nước Mắm 1L (Đặc Biệt) - 140.000₫">Nước Mắm 1L (Đặc Biệt) - 140.000₫</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Số Lượng *</label>
+                    <input type="number" id="quantity" name="quantity" required min="1" value="1" placeholder="Nhập số lượng">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Ghi Chú (Tùy Chọn)</label>
+                    <textarea id="notes" name="notes" placeholder="Ghi chú thêm về đơn hàng"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">✓ Gửi Đơn Hàng</button>
+            </form>
         </div>
     </section>
 
@@ -441,39 +655,106 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <h3>📞 Điện Thoại</h3>
-                    <p><a href="tel:0867678527" style="color: #FFD700; text-decoration: none;">0867 678 527</a></p>
+                    <a href="tel:0867678527">0867 678 527</a>
                 </div>
                 <div class="contact-item">
                     <h3>📧 Email</h3>
-                    <p><a href="mailto:nuocmamcavang@gmail.com" style="color: #FFD700; text-decoration: none;">nuocmamcavang@gmail.com</a></p>
+                    <a href="mailto:nuocmamcavangsachau@gmail.com">nuocmamcavangsachau@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <h3>📍 Địa Chỉ</h3>
                     <p>Làng Sa Châu, Giao Hưng, Ninh Bình, Việt Nam</p>
                 </div>
             </div>
-            <p style="margin-top: 30px; font-size: 16px;">Hãy liên hệ với chúng tôi để biết thêm thông tin về sản phẩm hoặc đặt hàng!</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <h3>Nước Mắm Cá Vàng</h3>
-            <p style="margin: 10px 0;">Nước mắm truyền thống chất lượng cao từ Làng Sa Châu</p>
-            
-            <div class="footer-links">
-                <a href="/terms-of-service">Điều Khoản Dịch Vụ</a>
-                <a href="/privacy-policy">Chính Sách Bảo Mật</a>
-                <a href="#contact">Liên Hệ</a>
-                <a href="#about">Về Chúng Tôi</a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Nước Mắm Cá Vàng. Tất cả quyền được bảo lưu.</p>
-                <p>Địa chỉ: Làng Sa Châu, Giao Hưng, Ninh Bình | Điện thoại: 0867 678 527</p>
-            </div>
-        </div>
+        <p>&copy; 2026 Nước Mắm Cá Vàng. Tất cả quyền được bảo lưu.</p>
+        <p>Email: <a href="mailto:nuocmamcavangsachau@gmail.com" style="color: var(--primary-gold); text-decoration: none;">nuocmamcavangsachau@gmail.com</a></p>
+        <p>Điện thoại: <a href="tel:0867678527" style="color: var(--primary-gold); text-decoration: none;">0867 678 527</a></p>
     </footer>
+
+    <script>
+        // Track events with pixels
+        function trackEvent(eventName, eventData = {}) {
+            // Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName, eventData);
+            }
+            // Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, eventData);
+            }
+            // TikTok Pixel
+            if (typeof ttq !== 'undefined') {
+                ttq.track(eventName, eventData);
+            }
+        }
+
+        // Handle form submission
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                product: document.getElementById('product').value,
+                quantity: document.getElementById('quantity').value,
+                notes: document.getElementById('notes').value
+            };
+
+            // Track purchase event
+            trackEvent('Purchase', {
+                value: formData.quantity,
+                currency: 'VND',
+                content_name: formData.product
+            });
+
+            // Send email via FormSubmit.co (free service)
+            const form = event.target;
+            const actionUrl = 'https://formsubmit.co/nuocmamcavangsachau@gmail.com';
+            
+            // Create hidden form
+            const hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = actionUrl;
+            hiddenForm.style.display = 'none';
+
+            // Add form fields
+            for (const [key, value] of Object.entries(formData)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                hiddenForm.appendChild(input);
+            }
+
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();
+
+            // Show success message
+            alert('✓ Đơn hàng của bạn đã được gửi thành công!\n\nChúng tôi sẽ liên hệ với bạn sớm nhất.');
+            form.reset();
+        }
+
+        // Track page view on load
+        window.addEventListener('load', function() {
+            trackEvent('PageView');
+        });
+
+        // Track product views
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const productName = this.querySelector('h3').textContent;
+                trackEvent('ViewContent', {
+                    content_name: productName,
+                    content_type: 'product'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
