@@ -1550,6 +1550,21 @@
         </div>
     </section>
 
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Khởi tạo EmailJS
+            emailjs.init({
+                publicKey: 'YOUR_EMAILJS_PUBLIC_KEY', // Thay bằng public key của bạn
+                limitRate: {
+                    id: 'emailjs_rate_limit',
+                    throttle: 50, // Milliseconds between requests
+                }
+            });
+        })();
+    </script>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Nước Mắm Cá Vàng - Tinh Túy Từ Làng Sa Châu. Tất cả quyền được bảo lưu.</p>
@@ -1707,46 +1722,47 @@
                 itemsText += `${item.name} x${item.quantity} - ${(item.price * item.quantity).toLocaleString('vi-VN')}₫\n`;
             });
 
-            // Gửi email qua FormSubmit
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://formsubmit.co/' + customerEmail;
-            form.style.display = 'none';
+            // Tạo nội dung email
+            const emailContent = `
+THÔNG TIN ĐƠN HÀNG MỚI
+========================
 
-            // Thêm các trường
-            const fields = {
-                'Họ Tên': customerName,
-                'Số Điện Thoại': customerPhone,
-                'Địa Chỉ': customerAddress,
-                'Ghi Chú': customerNotes || '(Không có)',
-                'Danh Sách Sản Phẩm': itemsText,
-                'Tổng Tiền': total.toLocaleString('vi-VN') + '₫',
-                'subject': 'Đơn Hàng Mới Từ Nước Mắm Cá Vàng'
-            };
+THÔNG TIN KHÁCH HÀNG:
+Hộ Tên: ${customerName}
+Số Điện Thoại: ${customerPhone}
+Địa Chỉ: ${customerAddress}
 
-            for (const [key, value] of Object.entries(fields)) {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = value;
-                form.appendChild(input);
-            }
+CHI TIẾT ĐƠN HÀNG:
+${itemsText}
+Tổng Tiền: ${total.toLocaleString('vi-VN')}₫
 
-            document.body.appendChild(form);
+GHI CHÚ:
+${customerNotes || '(Không có ghi chú)'}
 
-            // Track purchase event
-            trackEvent('Purchase', {
-                value: total,
-                currency: 'VND',
-                items: cart.length
-            });
+========================
+Thời gian: ${new Date().toLocaleString('vi-VN')}
+            `;
 
-            // Submit form
-            form.submit();
+            // Gửi email qua EmailJS
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', {
+                to_email: customerEmail,
+                customer_name: customerName,
+                customer_phone: customerPhone,
+                customer_address: customerAddress,
+                customer_notes: customerNotes || '(Không có ghi chú)',
+                order_items: itemsText,
+                total_amount: total.toLocaleString('vi-VN') + '₫',
+                order_time: new Date().toLocaleString('vi-VN')
+            }).then(() => {
+                // Track purchase event
+                trackEvent('Purchase', {
+                    value: total,
+                    currency: 'VND',
+                    items: cart.length
+                });
 
-            // Hiển thị thông báo thành công
-            setTimeout(() => {
-                checkoutBtn.textContent = '✓ Đặt Ngay';
+                // Hiển thị thông báo thành công
+                checkoutBtn.textContent = '📝 Đặt Ngay';
                 checkoutBtn.disabled = false;
                 
                 // Hiển thị thông báo
@@ -1792,7 +1808,12 @@
                 setTimeout(() => {
                     toggleCart();
                 }, 2000);
-            }, 800);
+            }).catch((error) => {
+                console.error('Lỗi gửi email:', error);
+                checkoutBtn.textContent = '📝 Đặt Ngay';
+                checkoutBtn.disabled = false;
+                alert('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng thử lại!');
+            });
         }
 
         // Modal Functions
