@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giới thiệu về Nước Mắm Cá Vàng Làng Sa Châu - Tinh túy từ truyền thống 100% tự nhiên.">
+    <title>Về Chúng Tôi - Nước Mắm Cá Vàng Làng Sa Châu</title>
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --primary-gold: #D4AF37;
+            --dark-red: #8B1428;
+            --light-gold: #F4E4C1;
+            --cream: #FFF8F0;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+            --border-light: #E8DCC8;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FEFDFB;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 16px 0;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow-light);
+            border: 1px solid var(--border-light);
+        }
+
+        h1 {
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            text-align: justify;
+        }
+
+        .map-section {
+            margin-top: 40px;
+            border-top: 2px solid var(--primary-gold);
+            padding-top: 30px;
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .back-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            background: var(--primary-gold);
+            color: var(--primary-red);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #2C2C2C;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🐠</span>
+                <span>Nước Mắm Cá Vàng</span>
+            </a>
+            <nav>
+                <a href="index.html">Trang Chủ</a>
+                <a href="about.html">Về Chúng Tôi</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-card">
+            <h1>Về Nước Mắm Cá Vàng Làng Sa Châu</h1>
+            <p>Nước Mắm Cá Vàng là niềm tự hào của Làng Sa Châu, Giao Thủy, Nam Định - một làng nghề truyền thống có lịch sử làm nước mắm lâu đời hàng trăm năm. Chúng tôi cam kết mang đến những giọt nước mắm tinh túy nhất, được chắt lọc từ sự kiên nhẫn và tâm huyết của những người thợ lành nghề.</p>
+            <p>Quy trình sản xuất của chúng tôi tuân thủ nghiêm ngặt phương pháp truyền thống: Cá cơm tươi được ủ với muối biển tinh khiết trong các thùng gỗ lớn hoặc bể xi măng lót gạch men. Qua quá trình lên men tự nhiên kéo dài từ 12 đến 24 tháng, nước mắm được rút nỏ, phơi nắng để đạt được độ đạm tự nhiên cao nhất và hương vị thơm ngon đặc trưng.</p>
+            <p>Sản phẩm Nước Mắm Cá Vàng 100% tự nhiên, không chứa chất bảo quản, không phẩm màu và không hương liệu nhân tạo, đảm bảo an toàn tuyệt đối cho sức khỏe gia đình bạn.</p>
+            
+            <div class="map-section">
+                <h3 style="color: var(--primary-red); margin-bottom: 20px;">📍 Địa chỉ của chúng tôi:</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.8322624536!2d106.3533827!3d20.2253457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313603002f974633%3A0x7f4802f06894982!2zTsaw4bubYyBN4bqvbSBDw6EgVsOgbmc!5e0!3m2!1svi!2s!4v1713678000000!5m2!1svi!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <p style="text-align: center;">
+                    <a href="https://share.google/E2MS6ylUWEiN940B4" target="_blank" style="color: var(--primary-red); font-weight: bold; text-decoration: none;">Mở trong Google Maps ↗</a>
+                </p>
+            </div>
+
+            <a href="index.html" class="back-home">Quay lại Trang Chủ</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nước Mắm Cá Vàng - Tinh Túy Từ Làng Sa Châu.</p>
+    </footer>
+</body>
+</html>
