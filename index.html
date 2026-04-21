@@ -99,21 +99,20 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 30px;
+            flex: 1;
+            justify-content: flex-end;
         }
 
         nav {
             display: flex;
             gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
+            font-size: 14px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
             transition: opacity 0.3s;
         }
 
@@ -121,44 +120,68 @@
             opacity: 0.8;
         }
 
-        /* Social Links */
         .social-links {
             display: flex;
             gap: 12px;
-            align-items: center;
+            font-size: 16px;
         }
 
         .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
             color: white;
             text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s;
+            transition: opacity 0.3s;
         }
 
         .social-links a:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
+            opacity: 0.8;
         }
 
-        /* Banner Khuyến Mãi */
-        .promo-banner {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+        /* Header Cart Button */
+        .header-cart-btn {
+            background: var(--primary-gold);
+            color: var(--primary-red);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .header-cart-btn:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .header-cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #FF6B6B;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD700 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s;
-            overflow: hidden;
-            position: relative;
         }
 
         .promo-banner:hover {
@@ -166,10 +189,8 @@
         }
 
         .promo-banner-content {
-            text-align: center;
-            z-index: 2;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .promo-banner-title {
@@ -184,17 +205,9 @@
         }
 
         .promo-banner-cta {
-            display: inline-block;
-            background: white;
-            color: #FF6B6B;
-            padding: 10px 20px;
-            border-radius: 20px;
+            font-size: 14px;
             font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .promo-banner:hover .promo-banner-cta {
-            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         /* Floating Cart Button */
@@ -230,7 +243,6 @@
         }
 
         .floating-cart-btn:hover {
-            transform: translateY(-15px) scale(1.1);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
@@ -355,47 +367,39 @@
             font-size: 12px;
         }
 
-        .cart-total {
-            background: var(--light-gold);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            text-align: right;
+        .remove-btn:hover {
+            background: #FF5252;
         }
 
-        .cart-total-label {
-            font-size: 14px;
-            color: var(--text-light);
-            margin-bottom: 8px;
+        .cart-total {
+            border-top: 2px solid var(--border-light);
+            padding-top: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 16px;
         }
 
         .cart-total-amount {
-            font-size: 24px;
-            font-weight: bold;
             color: var(--primary-red);
         }
 
         .checkout-btn {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            background: var(--primary-red);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 16px;
         }
 
         .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
-        }
-
-        .checkout-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
+            background: var(--dark-red);
         }
 
         /* Products Section */
@@ -440,6 +444,13 @@
             align-items: center;
             justify-content: center;
             font-size: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .product-image:hover {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--light-gold) 100%);
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -477,6 +488,125 @@
             color: white;
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--light-gold) 0%, var(--cream) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 20px;
+            color: var(--primary-red);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-qty label {
+            font-weight: bold;
+        }
+
+        .modal-qty input {
+            width: 60px;
+            padding: 8px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .modal-add-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .modal-add-btn:hover {
+            background: var(--dark-red);
+        }
+
         /* Footer */
         footer {
             background: var(--text-dark);
@@ -501,25 +631,14 @@
                 right: -100%;
             }
 
-            .floating-cart-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .header-container {
+            nav {
                 flex-direction: column;
                 gap: 10px;
             }
 
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .promo-banner {
-                height: 200px;
+            .header-right {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .promo-banner-title {
@@ -528,6 +647,10 @@
 
             .promo-banner-desc {
                 font-size: 14px;
+            }
+
+            .modal-content {
+                padding: 20px;
             }
         }
     </style>
@@ -559,11 +682,16 @@
                     <a href="https://www.tiktok.com/@nuocmamcavang?_r=1&_t=ZS-95iHRYHtL1N" target="_blank" title="TikTok">🎵</a>
                     <a href="https://www.instagram.com/nuocmamcavang?igsh=MXd2cXE3ZTRjNWo2dQ==" target="_blank" title="Instagram">📷</a>
                 </div>
+                <!-- Header Cart Button -->
+                <button class="header-cart-btn" id="headerCartBtn">
+                    🛒 <span id="headerCartCount">0</span>
+                    <span class="header-cart-badge" id="headerCartBadge" style="display: none;"></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Banner Khuyến Mãi - Có thể thay đổi dễ dàng -->
+    <!-- Banner Khuyến Mãi -->
     <div class="promo-banner" id="promoBanner" onclick="goToPromoLink()">
         <div class="promo-banner-content">
             <div class="promo-banner-title">🎉 Khuyến Mãi Đặc Biệt</div>
@@ -597,6 +725,22 @@
         <button class="checkout-btn" id="checkoutBtn">📝 Đặt Hàng</button>
     </div>
 
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-image" id="modalImage">🐠</div>
+            <div class="modal-name" id="modalName"></div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-description" id="modalDescription"></div>
+            <div class="modal-qty">
+                <label for="modalQty">Số lượng:</label>
+                <input type="number" id="modalQty" min="1" value="1">
+            </div>
+            <button class="modal-add-btn" onclick="addFromModal()">Thêm vào giỏ</button>
+        </div>
+    </div>
+
     <!-- Products Section -->
     <section class="products-section" id="products">
         <h2>🌟 Sản Phẩm Nước Mắm Cá Vàng</h2>
@@ -617,277 +761,215 @@
 
     <script>
         // ===== CẤU HÌNH BANNER KHUYẾN MÃI =====
-        // Bạn có thể dễ dàng thay đổi các giá trị này
         const promoConfig = {
             title: '🎉 Khuyến Mãi Đặc Biệt',
             description: 'Giảm 20% cho đơn hàng đầu tiên',
-            link: '/promo.html' // Thay đổi link sản phẩm khuyến mãi ở đây
+            link: '/promo.html'
         };
 
         function goToPromoLink() {
-            window.open(promoConfig.link, '_blank');
+            window.location.href = promoConfig.link;
         }
 
-        // ===== PRODUCTS DATA =====
+        // ===== SẢN PHẨM =====
         const products = [
-            { id: 1, name: 'Nước Mắm 500ml', price: 50000, emoji: '🐠' },
-            { id: 2, name: 'Nước Mắm 1 Lít', price: 100000, emoji: '🐠' },
-            { id: 3, name: 'Nước Mắm Đặc Biệt 1L', price: 130000, emoji: '🐠' },
-            { id: 4, name: 'Combo 2 Chai 500ml', price: 90000, emoji: '🐠' },
-            { id: 5, name: 'Combo 2 Chai 1L', price: 180000, emoji: '🐠' },
-            { id: 6, name: 'Bộ Quà Tặng 3 Chai', price: 250000, emoji: '🐠' },
+            { id: 1, name: 'Nước Mắm 500ml', price: 50000, emoji: '🐠', description: 'Nước mắm truyền thống 500ml, chất lượng cao, 100% tự nhiên' },
+            { id: 2, name: 'Nước Mắm 1 Lít', price: 100000, emoji: '🐠', description: 'Nước mắm truyền thống 1 lít, chất lượng cao, 100% tự nhiên' },
+            { id: 3, name: 'Nước Mắm Đặc Biệt 1L', price: 130000, emoji: '🐠', description: 'Nước mắm đặc biệt 1 lít, lên men lâu, hương vị đậm đà' },
+            { id: 4, name: 'Combo 2 Chai 500ml', price: 90000, emoji: '🐠', description: 'Combo tiết kiệm: 2 chai nước mắm 500ml' },
+            { id: 5, name: 'Combo 2 Chai 1L', price: 180000, emoji: '🐠', description: 'Combo tiết kiệm: 2 chai nước mắm 1 lít' },
+            { id: 6, name: 'Bộ Quà Tặng 3 Chai', price: 250000, emoji: '🐠', description: 'Bộ quà tặng hoàn hảo: 3 chai nước mắm đa loại' }
         ];
 
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentProduct = null;
 
-        // Initialize
-        function init() {
-            renderProducts();
-            setupEventListeners();
-            loadCartFromStorage();
-        }
-
-        // Render Products
+        // ===== RENDER SẢN PHẨM =====
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = products.map(product => `
                 <div class="product-card">
-                    <div class="product-image">${product.emoji}</div>
+                    <div class="product-image" onclick="openModal(${product.id})">${product.emoji}</div>
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-price">${product.price.toLocaleString('vi-VN')}₫</div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
-                            Thêm vào giỏ
-                        </button>
+                        <div class="product-price">${product.price.toLocaleString()}₫</div>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Thêm vào giỏ</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Add to Cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
+        // ===== MODAL CHI TIẾT SẢN PHẨM =====
+        function openModal(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
 
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCart();
-            saveCartToStorage();
+            document.getElementById('modalImage').textContent = currentProduct.emoji;
+            document.getElementById('modalName').textContent = currentProduct.name;
+            document.getElementById('modalPrice').textContent = currentProduct.price.toLocaleString() + '₫';
+            document.getElementById('modalDescription').textContent = currentProduct.description;
+            document.getElementById('modalQty').value = 1;
+            document.getElementById('productModal').classList.add('active');
         }
 
-        // Update Cart Display
-        function updateCart() {
-            const cartItemsDiv = document.getElementById('cartItems');
-            const cartBadge = document.getElementById('cartBadge');
-            const cartTotal = document.getElementById('cartTotal');
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+            currentProduct = null;
+        }
 
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p style="text-align: center; color: var(--text-light);">Giỏ hàng trống</p>';
-                cartBadge.style.display = 'none';
-                cartTotal.textContent = '0₫';
-                return;
+        function addFromModal() {
+            if (!currentProduct) return;
+            const qty = parseInt(document.getElementById('modalQty').value) || 1;
+            for (let i = 0; i < qty; i++) {
+                addToCart(currentProduct.id);
+            }
+            closeModal();
+            updateCartUI();
+        }
+
+        // ===== GIỎ HÀNG =====
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.qty++;
+            } else {
+                cart.push({ ...product, qty: 1 });
             }
 
-            cartBadge.textContent = cart.length;
-            cartBadge.style.display = 'flex';
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
 
-            let total = 0;
-            cartItemsDiv.innerHTML = cart.map((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                return `
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateQty(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartUI();
+                }
+            }
+        }
+
+        function updateCartUI() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartBadge = document.getElementById('cartBadge');
+            const headerCartCount = document.getElementById('headerCartCount');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: var(--text-light);">Giỏ hàng trống</p>';
+                cartBadge.style.display = 'none';
+                headerCartCount.textContent = '0';
+            } else {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+
+                cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
                         <div class="cart-item-info">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">${item.price.toLocaleString('vi-VN')}₫</div>
+                            <div class="cart-item-price">${(item.price * item.qty).toLocaleString()}₫</div>
                         </div>
                         <div class="cart-item-qty">
-                            <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
-                            <span>${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                            <button class="remove-btn" onclick="removeFromCart(${index})">Xóa</button>
+                            <button class="qty-btn" onclick="updateQty(${item.id}, -1)">−</button>
+                            <span>${item.qty}</span>
+                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Xóa</button>
                         </div>
                     </div>
-                `;
-            }).join('');
+                `).join('');
 
-            cartTotal.textContent = total.toLocaleString('vi-VN') + '₫';
-        }
-
-        // Update Quantity
-        function updateQuantity(index, change) {
-            cart[index].quantity += change;
-            if (cart[index].quantity <= 0) {
-                removeFromCart(index);
-            } else {
-                updateCart();
-                saveCartToStorage();
+                cartTotal.textContent = total.toLocaleString() + '₫';
+                cartBadge.textContent = totalQty;
+                cartBadge.style.display = 'flex';
+                headerCartCount.textContent = totalQty;
             }
         }
 
-        // Remove from Cart
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCart();
-            saveCartToStorage();
-        }
+        // ===== CART SIDEBAR =====
+        document.getElementById('floatingCartBtn').addEventListener('click', () => {
+            document.getElementById('cartSidebar').classList.add('active');
+        });
 
-        // Setup Event Listeners
-        function setupEventListeners() {
-            const floatingCartBtn = document.getElementById('floatingCartBtn');
-            const closeCartBtn = document.getElementById('closeCartBtn');
-            const cartSidebar = document.getElementById('cartSidebar');
-            const checkoutBtn = document.getElementById('checkoutBtn');
+        document.getElementById('headerCartBtn').addEventListener('click', () => {
+            document.getElementById('cartSidebar').classList.add('active');
+        });
 
-            floatingCartBtn.addEventListener('click', () => {
-                cartSidebar.classList.toggle('active');
-            });
+        document.getElementById('closeCartBtn').addEventListener('click', () => {
+            document.getElementById('cartSidebar').classList.remove('active');
+        });
 
-            closeCartBtn.addEventListener('click', () => {
-                cartSidebar.classList.remove('active');
-            });
+        document.getElementById('cartSidebar').addEventListener('click', (e) => {
+            if (e.target.id === 'cartSidebar') {
+                document.getElementById('cartSidebar').classList.remove('active');
+            }
+        });
 
-            checkoutBtn.addEventListener('click', checkout);
-
-            // Close cart when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!cartSidebar.contains(e.target) && !floatingCartBtn.contains(e.target)) {
-                    cartSidebar.classList.remove('active');
-                }
-            });
-        }
-
-        // Checkout with FormSubmit.co
-        function checkout() {
+        // ===== CHECKOUT =====
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
             if (cart.length === 0) {
                 alert('Giỏ hàng trống!');
                 return;
             }
 
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            checkoutBtn.textContent = '⏳ Đang xử lý...';
-            checkoutBtn.disabled = true;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const cartDetails = cart.map(item => `${item.name} x${item.qty} = ${(item.price * item.qty).toLocaleString()}₫`).join('\n');
 
-            // Prepare order data
-            let itemsText = cart.map(item => 
-                `${item.name} x${item.quantity} = ${(item.price * item.quantity).toLocaleString('vi-VN')}₫`
-            ).join('\n');
+            // Gửi email qua FormSubmit
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/nuocmamcavang@gmail.com';
 
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const fields = {
+                'Sản phẩm': cartDetails,
+                'Tổng tiền': total.toLocaleString() + '₫',
+                'Thời gian': new Date().toLocaleString('vi-VN')
+            };
 
-            // Prepare form data for FormSubmit.co
-            const formData = new FormData();
-            formData.append('_captcha', 'false');
-            formData.append('_subject', 'Đơn Hàng Mới - Nước Mắm Cá Vàng');
-            formData.append('Sản Phẩm', itemsText);
-            formData.append('Tổng Tiền', total.toLocaleString('vi-VN') + '₫');
-            formData.append('Thời Gian', new Date().toLocaleString('vi-VN'));
+            for (const [key, value] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
 
-            // Send to FormSubmit.co
-            fetch('https://formsubmit.co/ajax/nuocmamcavang@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Show success message
-                    const successMsg = document.createElement('div');
-                    successMsg.textContent = '✅ Đơn hàng đã được gửi! Chúng tôi sẽ liên hệ bạn sớm.';
-                    successMsg.style.cssText = `
-                        position: fixed;
-                        top: 20px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: #4CAF50;
-                        color: white;
-                        padding: 15px 20px;
-                        border-radius: 8px;
-                        z-index: 2000;
-                        animation: slideDown 0.3s ease;
-                    `;
-                    document.body.appendChild(successMsg);
+            document.body.appendChild(form);
+            form.submit();
 
-                    // Remove message after 3 seconds
-                    setTimeout(() => {
-                        successMsg.style.animation = 'fadeOut 0.3s ease';
-                        setTimeout(() => successMsg.remove(), 300);
-                    }, 3000);
+            // Gửi Zalo
+            setTimeout(() => {
+                const zaloMessage = `Đơn hàng mới:\n${cartDetails}\nTổng: ${total.toLocaleString()}₫`;
+                window.open(`https://zalo.me/0867678527?text=${encodeURIComponent(zaloMessage)}`, '_blank');
+            }, 1000);
 
-                    // Open Zalo
-                    setTimeout(() => {
-                        const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
-                        const encodedMessage = encodeURIComponent(zaloMessage);
-                        window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
-                    }, 500);
-
-                    // Clear cart
-                    cart = [];
-                    updateCart();
-                    saveCartToStorage();
-
-                    // Close sidebar after 2 seconds
-                    setTimeout(() => {
-                        document.getElementById('cartSidebar').classList.remove('active');
-                        checkoutBtn.textContent = '📝 Đặt Hàng';
-                        checkoutBtn.disabled = false;
-                    }, 2000);
-                } else {
-                    throw new Error('Lỗi gửi email');
-                }
-            })
-            .catch(error => {
-                console.error('Lỗi:', error);
-                checkoutBtn.textContent = '📝 Đặt Hàng';
-                checkoutBtn.disabled = false;
-                alert('Có lỗi xảy ra. Vui lòng thử lại!');
-            });
-        }
-
-        // Local Storage
-        function saveCartToStorage() {
+            cart = [];
             localStorage.setItem('cart', JSON.stringify(cart));
-        }
+            updateCartUI();
+        });
 
-        function loadCartFromStorage() {
-            const saved = localStorage.getItem('cart');
-            if (saved) {
-                cart = JSON.parse(saved);
-                updateCart();
+        // ===== MODAL CLOSE ON OUTSIDE CLICK =====
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target.id === 'productModal') {
+                closeModal();
             }
-        }
+        });
 
-        // Add animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideDown {
-                from {
-                    transform: translateX(-50%) translateY(-100px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(-50%) translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            @keyframes fadeOut {
-                from {
-                    opacity: 1;
-                }
-                to {
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialize on load
-        window.addEventListener('load', init);
+        // ===== INIT =====
+        renderProducts();
+        updateCartUI();
     </script>
 </body>
 </html>
