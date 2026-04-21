@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Về Chúng Tôi - Nước Mắm Cá Vàng. Tìm hiểu lịch sử, quy trình sản xuất, và cam kết chất lượng của chúng tôi.">
+    <title>Về Chúng Tôi - Nước Mắm Cá Vàng</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #C41E3A;
+            --primary-gold: #D4AF37;
+            --dark-red: #8B1428;
+            --light-gold: #F4E4C1;
+            --cream: #FFF8F0;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+            --border-light: #E8DCC8;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FEFDFB;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 16px 0;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Back Button */
+        .back-btn {
+            background: var(--primary-gold);
+            color: var(--primary-red);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 32px;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-section h3 {
+            font-size: 24px;
+            color: var(--primary-red);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            text-align: left;
+        }
+
+        /* Process Section */
+        .process-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, var(--light-gold) 0%, var(--cream) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border-light);
+        }
+
+        .process-step-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .process-step-title {
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .process-step-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .value-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            border-top: 4px solid var(--primary-gold);
+        }
+
+        .value-card h4 {
+            color: var(--primary-red);
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            text-align: left;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .cta-section h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background: var(--primary-gold);
+            color: var(--primary-red);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .cta-btn:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .content-section h2 {
+                font-size: 24px;
+            }
+
+            .content-section h3 {
+                font-size: 18px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🐠</span>
+                    <span>Nước Mắm Cá Vàng</span>
+                </a>
+                <div class="header-contact">
+                    <a href="https://zalo.me/0867678527" target="_blank" title="Liên hệ Zalo">📱 0867678527</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="/">Trang Chủ</a>
+                    <a href="/#products">Sản Phẩm</a>
+                    <a href="/about.html">Về Chúng Tôi</a>
+                    <a href="/#contact">Liên Hệ</a>
+                </nav>
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nuocmamcavanglangsachau/" target="_blank" title="Facebook">f</a>
+                    <a href="https://www.tiktok.com/@nuocmamcavang?_r=1&_t=ZS-95iHRYHtL1N" target="_blank" title="TikTok">🎵</a>
+                    <a href="https://www.instagram.com/nuocmamcavang?igsh=MXd2cXE3ZTRjNWo2dQ==" target="_blank" title="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🐠 Về Chúng Tôi</h1>
+            <p>Tinh Túy Từ Làng Sa Châu - Nước Mắm Truyền Thống 100% Tự Nhiên</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <a href="/" class="back-btn">← Quay Lại Trang Chủ</a>
+
+        <h2 style="margin-top: 30px;">Lịch Sử & Nguồn Gốc</h2>
+        <p>
+            Nước Mắm Cá Vàng là sản phẩm truyền thống nổi tiếng của Làng Sa Châu, Giao Châu, Giao Thủy, Nam Định. 
+            Với hơn 100 năm lịch sử sản xuất, chúng tôi tự hào mang đến cho bạn những sản phẩm nước mắm chất lượng cao, 
+            được lên men tự nhiên theo phương pháp truyền thống của ông bà.
+        </p>
+        <p>
+            Mỗi chai nước mắm của chúng tôi là kết quả của sự kiên nhẫn, tâm huyết và những bí quyết được truyền lại 
+            từ thế hệ này sang thế hệ khác. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm tốt nhất 
+            với chất lượng không thay đổi.
+        </p>
+
+        <h3>🎯 Cam Kết Chất Lượng</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>✅ 100% Tự Nhiên</h4>
+                <p>Không chứa chất bảo quản, không chất tạo màu. Chỉ có cá, muối, và thời gian.</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Lên Men Truyền Thống</h4>
+                <p>Lên men tự nhiên từ 6-12 tháng, giữ nguyên hương vị đậm đà và giá trị dinh dưỡng.</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Vệ Sinh & An Toàn</h4>
+                <p>Quy trình sản xuất đạt tiêu chuẩn vệ sinh thực phẩm, kiểm tra chất lượng nghiêm ngặt.</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Hương Vị Đặc Trưng</h4>
+                <p>Hương vị đậm đà, mặn vừa, phù hợp với mọi món ăn Việt Nam truyền thống.</p>
+            </div>
+        </div>
+
+        <h3>🔄 Quy Trình Sản Xuất</h3>
+        <p>Chúng tôi tuân theo quy trình sản xuất truyền thống, từ chọn cá, muối, cho đến lên men và đóng chai:</p>
+        <div class="process-container">
+            <div class="process-step">
+                <div class="process-step-number">1️⃣</div>
+                <div class="process-step-title">Chọn Cá</div>
+                <div class="process-step-desc">Chọn cá tươi, nguyên chất từ các vùng biển sạch</div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">2️⃣</div>
+                <div class="process-step-title">Ướp Muối</div>
+                <div class="process-step-desc">Ướp cá với muối biển nguyên chất theo tỷ lệ chuẩn</div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">3️⃣</div>
+                <div class="process-step-title">Lên Men</div>
+                <div class="process-step-desc">Lên men tự nhiên từ 6-12 tháng trong điều kiện tối ưu</div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">4️⃣</div>
+                <div class="process-step-title">Lọc & Đóng Chai</div>
+                <div class="process-step-desc">Lọc sạch, đóng chai vô trùng, sẵn sàng gửi đến tay bạn</div>
+            </div>
+        </div>
+
+        <h3>💎 Giá Trị & Sứ Mệnh</h3>
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>🌟 Chất Lượng Hàng Đầu</h4>
+                <p>Chúng tôi cam kết cung cấp nước mắm chất lượng cao nhất, đạt tiêu chuẩn quốc tế.</p>
+            </div>
+            <div class="value-card">
+                <h4>❤️ Tâm Huyết & Trách Nhiệm</h4>
+                <p>Mỗi chai nước mắm được sản xuất với tâm huyết, tình yêu với nghề và trách nhiệm với khách hàng.</p>
+            </div>
+            <div class="value-card">
+                <h4>🌍 Bảo Vệ Môi Trường</h4>
+                <p>Sử dụng nguyên liệu tự nhiên, không gây ô nhiễm môi trường, bảo vệ tương lai thế hệ sau.</p>
+            </div>
+            <div class="value-card">
+                <h4>👨‍👩‍👧‍👦 Hỗ Trợ Cộng Đồng</h4>
+                <p>Chúng tôi hỗ trợ các gia đình nông dân địa phương, tạo việc làm và phát triển kinh tế bền vững.</p>
+            </div>
+        </div>
+
+        <h3>🎁 Tại Sao Chọn Chúng Tôi?</h3>
+        <p>
+            <strong>Truyền Thống:</strong> Hơn 100 năm kinh nghiệm sản xuất nước mắm truyền thống<br>
+            <strong>Chất Lượng:</strong> 100% tự nhiên, không chất bảo quản, không chất tạo màu<br>
+            <strong>Hương Vị:</strong> Hương vị đậm đà, mặn vừa, phù hợp với mọi món ăn<br>
+            <strong>Giá Cả:</strong> Giá cạnh tranh, chất lượng tốt nhất<br>
+            <strong>Dịch Vụ:</strong> Giao hàng nhanh, hỗ trợ khách hàng 24/7
+        </p>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3>🛒 Sẵn Sàng Thưởng Thức Hương Vị Truyền Thống?</h3>
+            <p style="margin: 15px 0;">Hãy khám phá các sản phẩm nước mắm chất lượng cao của chúng tôi ngay hôm nay!</p>
+            <a href="/" class="cta-btn">Xem Sản Phẩm</a>
+        </div>
+
+        <h3>📞 Liên Hệ Chúng Tôi</h3>
+        <p>
+            <strong>Địa chỉ:</strong> Làng Sa Châu, Giao Châu, Giao Thủy, Nam Định<br>
+            <strong>Điện thoại:</strong> <a href="https://zalo.me/0867678527" target="_blank">0867678527</a><br>
+            <strong>Email:</strong> <a href="mailto:nuocmamcavang@gmail.com">nuocmamcavang@gmail.com</a><br>
+            <strong>Facebook:</strong> <a href="https://www.facebook.com/nuocmamcavanglangsachau/" target="_blank">Nước Mắm Cá Vàng</a><br>
+            <strong>TikTok:</strong> <a href="https://www.tiktok.com/@nuocmamcavang?_r=1&_t=ZS-95iHRYHtL1N" target="_blank">@nuocmamcavang</a>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nước Mắm Cá Vàng - Làng Sa Châu, Giao Châu, Giao Thủy, Nam Định</p>
+        <p>
+            <a href="terms-of-service">Điều Khoản Dịch Vụ</a> | 
+            <a href="privacy-policy">Chính Sách Bảo Mật</a>
+        </p>
+        <p>Liên hệ: <a href="https://zalo.me/0867678527" target="_blank">Zalo 0867678527</a> | <a href="mailto:nuocmamcavang@gmail.com">nuocmamcavang@gmail.com</a></p>
+    </footer>
+</body>
+</html>
