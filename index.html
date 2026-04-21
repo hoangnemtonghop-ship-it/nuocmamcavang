@@ -65,7 +65,7 @@
             background-color: #FEFDFB;
         }
 
-        /* Header - Gọn gàng & Thân thiện */
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
@@ -810,6 +810,57 @@
             color: var(--text-dark);
         }
 
+        /* Form trong giỏ hàng */
+        .cart-form {
+            background: var(--light-gold);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-light);
+        }
+
+        .cart-form h3 {
+            color: var(--primary-red);
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-red);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
         .cart-footer {
             background: var(--cream);
             padding: 20px;
@@ -853,6 +904,11 @@
         .cart-checkout:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .cart-checkout:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .cart-overlay {
@@ -1070,11 +1126,11 @@
                 <span class="cart-total-label">Tổng tiền:</span>
                 <span class="cart-total-value" id="cartTotal">0₫</span>
             </div>
-            <button class="cart-checkout" onclick="proceedToCheckout()">✓ Thanh Toán</button>
+            <button class="cart-checkout" onclick="proceedToCheckout()" id="checkoutBtn" disabled>✓ Thanh Toán</button>
         </div>
     </div>
 
-    <!-- Header - Gọn Gàng -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="header-left">
@@ -1262,7 +1318,7 @@
         </div>
     </section>
 
-    <!-- Product Detail Modals (Tương tự file trước, tôi sẽ rút gọn) -->
+    <!-- Product Detail Modals -->
     <div id="product1" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1287,9 +1343,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Tương tự cho các sản phẩm khác (product2-product9) -->
-    <!-- Để rút gọn, tôi sẽ chỉ thêm product2 và product3 làm ví dụ -->
 
     <div id="product2" class="modal">
         <div class="modal-content">
@@ -1339,7 +1392,6 @@
         </div>
     </div>
 
-    <!-- Các modal khác (product4-product9) - tôi sẽ thêm tương tự -->
     <div id="product4" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1501,6 +1553,7 @@
     <script>
         // Cart Management
         let cart = [];
+        const customerEmail = 'nuocmamcavangsachau@gmail.com';
 
         function addToCart(productName, price) {
             const existingItem = cart.find(item => item.name === productName);
@@ -1535,6 +1588,7 @@
             const cartBody = document.getElementById('cartBody');
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
 
             if (cart.length === 0) {
                 cartBody.innerHTML = `
@@ -1545,6 +1599,7 @@
                     </div>
                 `;
                 cartCount.style.display = 'none';
+                checkoutBtn.disabled = true;
             } else {
                 let html = '';
                 let total = 0;
@@ -1574,10 +1629,34 @@
                     `;
                 });
 
+                // Thêm form đặt hàng
+                html += `
+                    <div class="cart-form">
+                        <h3>📋 Thông Tin Đặt Hàng</h3>
+                        <div class="form-group">
+                            <label>Họ Tên *</label>
+                            <input type="text" id="customerName" placeholder="Nhập họ tên của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số Điện Thoại *</label>
+                            <input type="tel" id="customerPhone" placeholder="Nhập số điện thoại" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Địa Chỉ Giao Hàng *</label>
+                            <textarea id="customerAddress" placeholder="Nhập địa chỉ giao hàng" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Ghi Chú (Tùy Chọn)</label>
+                            <textarea id="customerNotes" placeholder="Ghi chú thêm về đơn hàng"></textarea>
+                        </div>
+                    </div>
+                `;
+
                 cartBody.innerHTML = html;
                 cartCount.textContent = count;
                 cartCount.style.display = 'flex';
                 cartTotal.textContent = total.toLocaleString('vi-VN') + '₫';
+                checkoutBtn.disabled = false;
             }
         }
 
@@ -1594,6 +1673,18 @@
                 return;
             }
 
+            // Lấy thông tin khách hàng
+            const customerName = document.getElementById('customerName').value.trim();
+            const customerPhone = document.getElementById('customerPhone').value.trim();
+            const customerAddress = document.getElementById('customerAddress').value.trim();
+            const customerNotes = document.getElementById('customerNotes').value.trim();
+
+            // Kiểm tra thông tin bắt buộc
+            if (!customerName || !customerPhone || !customerAddress) {
+                alert('Vui lòng điền đầy đủ thông tin: Họ Tên, Số Điện Thoại, Địa Chỉ!');
+                return;
+            }
+
             // Tính tổng tiền
             let total = 0;
             let itemsText = '';
@@ -1602,19 +1693,78 @@
                 itemsText += `${item.name} x${item.quantity} - ${(item.price * item.quantity).toLocaleString('vi-VN')}₫\n`;
             });
 
-            // Tạo message
-            const message = `Đơn hàng của tôi:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
+            // Tạo nội dung email
+            const emailBody = `
+THÔNG TIN ĐƠN HÀNG MỚI
+========================
 
-            // Gửi qua WhatsApp hoặc điện thoại
-            const phone = '0867678527';
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+THÔNG TIN KHÁCH HÀNG:
+Họ Tên: ${customerName}
+Số Điện Thoại: ${customerPhone}
+Địa Chỉ: ${customerAddress}
 
+CHI TIẾT ĐƠN HÀNG:
+${itemsText}
+Tổng Tiền: ${total.toLocaleString('vi-VN')}₫
+
+GHI CHÚ:
+${customerNotes || '(Không có ghi chú)'}
+
+========================
+Thời gian: ${new Date().toLocaleString('vi-VN')}
+            `;
+
+            // Gửi email qua FormSubmit
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/' + customerEmail;
+            form.style.display = 'none';
+
+            // Thêm các trường
+            const fields = {
+                'Họ Tên': customerName,
+                'Số Điện Thoại': customerPhone,
+                'Địa Chỉ': customerAddress,
+                'Ghi Chú': customerNotes || '(Không có)',
+                'Danh Sách Sản Phẩm': itemsText,
+                'Tổng Tiền': total.toLocaleString('vi-VN') + '₫',
+                'subject': 'Đơn Hàng Mới Từ Nước Mắm Cá Vàng'
+            };
+
+            for (const [key, value] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                form.appendChild(input);
+            }
+
+            document.body.appendChild(form);
+
+            // Track purchase event
             trackEvent('Purchase', {
                 value: total,
                 currency: 'VND',
                 items: cart.length
             });
+
+            // Submit form
+            form.submit();
+
+            // Mở Zalo sau khi gửi email
+            setTimeout(() => {
+                const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
+                const encodedMessage = encodeURIComponent(zaloMessage);
+                window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
+            }, 1000);
+
+            // Xóa giỏ hàng và đóng sidebar
+            setTimeout(() => {
+                cart = [];
+                updateCart();
+                alert('✓ Đơn hàng của bạn đã được gửi thành công!\n\nChúng tôi sẽ liên hệ với bạn sớm nhất.');
+                toggleCart();
+            }, 2000);
         }
 
         // Modal Functions
