@@ -553,15 +553,6 @@
             }
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -1135,7 +1126,7 @@
                 <span class="cart-total-label">Tổng tiền:</span>
                 <span class="cart-total-value" id="cartTotal">0₫</span>
             </div>
-            <button class="cart-checkout" onclick="proceedToCheckout()" id="checkoutBtn" disabled>📝 Đặt Ngay</button>
+            <button class="cart-checkout" onclick="proceedToCheckout()" id="checkoutBtn" disabled>✓ Thanh Toán</button>
         </div>
     </div>
 
@@ -1694,11 +1685,6 @@
                 return;
             }
 
-            // Vô hiệu hóa nút để tránh click lặp lại
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            checkoutBtn.disabled = true;
-            checkoutBtn.textContent = '⏳ Đang xử lý...';
-
             // Tính tổng tiền
             let total = 0;
             let itemsText = '';
@@ -1706,6 +1692,27 @@
                 total += item.price * item.quantity;
                 itemsText += `${item.name} x${item.quantity} - ${(item.price * item.quantity).toLocaleString('vi-VN')}₫\n`;
             });
+
+            // Tạo nội dung email
+            const emailBody = `
+THÔNG TIN ĐƠN HÀNG MỚI
+========================
+
+THÔNG TIN KHÁCH HÀNG:
+Họ Tên: ${customerName}
+Số Điện Thoại: ${customerPhone}
+Địa Chỉ: ${customerAddress}
+
+CHI TIẾT ĐƠN HÀNG:
+${itemsText}
+Tổng Tiền: ${total.toLocaleString('vi-VN')}₫
+
+GHI CHÚ:
+${customerNotes || '(Không có ghi chú)'}
+
+========================
+Thời gian: ${new Date().toLocaleString('vi-VN')}
+            `;
 
             // Gửi email qua FormSubmit
             const form = document.createElement('form');
@@ -1744,55 +1751,20 @@
             // Submit form
             form.submit();
 
-            // Hiển thị thông báo thành công
+            // Mở Zalo sau khi gửi email
             setTimeout(() => {
-                checkoutBtn.textContent = '✓ Đặt Ngay';
-                checkoutBtn.disabled = false;
-                
-                // Hiển thị thông báo
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, #C41E3A 0%, #8B1428 100%);
-                    color: white;
-                    padding: 20px 25px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
-                    z-index: 10000;
-                    font-weight: 600;
-                    animation: slideIn 0.3s ease;
-                    max-width: 350px;
-                `;
-                successMsg.innerHTML = `
-                    <div style="font-size: 18px; margin-bottom: 8px;">✓ Đặt hàng thành công!</div>
-                    <div style="font-size: 13px; opacity: 0.9;">Đơn hàng của bạn đã được gửi. Chúng tôi sẽ liên hệ với bạn sớm nhất.</div>
-                `;
-                document.body.appendChild(successMsg);
+                const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
+                const encodedMessage = encodeURIComponent(zaloMessage);
+                window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
+            }, 1000);
 
-                // Xóa thông báo sau 3 giây
-                setTimeout(() => {
-                    successMsg.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 3000);
-
-                // Mở Zalo để khách hàng có thể liên hệ
-                setTimeout(() => {
-                    const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
-                    const encodedMessage = encodeURIComponent(zaloMessage);
-                    window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
-                }, 500);
-
-                // Xóa giỏ hàng
+            // Xóa giỏ hàng và đóng sidebar
+            setTimeout(() => {
                 cart = [];
                 updateCart();
-                
-                // Đóng sidebar sau 2 giây
-                setTimeout(() => {
-                    toggleCart();
-                }, 2000);
-            }, 800);
+                alert('✓ Đơn hàng của bạn đã được gửi thành công!\n\nChúng tôi sẽ liên hệ với bạn sớm nhất.');
+                toggleCart();
+            }, 2000);
         }
 
         // Modal Functions
