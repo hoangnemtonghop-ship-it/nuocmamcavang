@@ -217,38 +217,45 @@
             font-weight: bold;
         }
 
-        /* Mini Cart Badge */
-        .mini-cart-badge {
-            background-color: var(--primary-gold);
-            color: var(--primary-red);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            position: relative;
-        }
-
-        .mini-cart-badge:hover {
-            transform: scale(1.05);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .mini-cart-count {
-            background: #FF6B6B;
+        /* Floating Cart Button */
+        .floating-cart-btn {
+            position: fixed;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            width: 18px;
-            height: 18px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            z-index: 999;
+            transition: transform 0.2s;
+            border: none;
+            pointer-events: auto;
+        }
+
+        .floating-cart-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #FFD700;
+            color: var(--primary-red);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
             font-weight: bold;
+            border: 2px solid white;
         }
 
         /* Hero Section */
@@ -1093,11 +1100,6 @@
                 font-size: 12px;
             }
 
-            .mini-cart-badge {
-                padding: 5px 10px;
-                font-size: 11px;
-            }
-
             .hero h1 {
                 font-size: 32px;
             }
@@ -1140,6 +1142,12 @@
             .contact-info {
                 grid-template-columns: 1fr;
             }
+
+            .floating-cart-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -1169,6 +1177,12 @@
         </div>
     </div>
 
+    <!-- Floating Cart Button -->
+    <button class="floating-cart-btn" id="floatingCartBtn" onclick="toggleCart()" style="display: none;">
+        🛒
+        <span class="floating-cart-count" id="floatingCartCount" style="display: none;">0</span>
+    </button>
+
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -1194,9 +1208,6 @@
                     <a href="#" title="Instagram">📷</a>
                     <a href="#" title="TikTok">♪</a>
                 </div>
-                <button class="mini-cart-badge" onclick="toggleCart()" id="miniCartBadge" style="display: none;">
-                    🛒 <span id="miniCartCount">0</span>
-                </button>
                 <button class="cart-btn" onclick="toggleCart()" id="mainCartBtn">
                     🛒 Giỏ Hàng
                     <span class="cart-count" id="cartCount" style="display: none;">0</span>
@@ -1360,7 +1371,7 @@
         </div>
     </section>
 
-    <!-- Product Detail Modals -->
+    <!-- Product Detail Modals (Tương tự như trước) -->
     <div id="product1" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1596,7 +1607,26 @@
         // Cart Management
         let cart = [];
         const customerEmail = 'nuocmamcavangsachau@gmail.com';
-        const googleFormURL = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse';
+
+        // Floating button position
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function updateFloatingButton() {
+            const btn = document.getElementById('floatingCartBtn');
+            if (btn.style.display !== 'none') {
+                btn.style.left = (mouseX - 30) + 'px';
+                btn.style.top = (mouseY - 30) + 'px';
+            }
+            requestAnimationFrame(updateFloatingButton);
+        }
+
+        updateFloatingButton();
 
         function addToCart(productName, price) {
             const existingItem = cart.find(item => item.name === productName);
@@ -1630,8 +1660,8 @@
         function updateCart() {
             const cartBody = document.getElementById('cartBody');
             const cartCount = document.getElementById('cartCount');
-            const miniCartCount = document.getElementById('miniCartCount');
-            const miniCartBadge = document.getElementById('miniCartBadge');
+            const floatingCartBtn = document.getElementById('floatingCartBtn');
+            const floatingCartCount = document.getElementById('floatingCartCount');
             const cartTotal = document.getElementById('cartTotal');
             const checkoutBtn = document.getElementById('checkoutBtn');
 
@@ -1644,7 +1674,7 @@
                     </div>
                 `;
                 cartCount.style.display = 'none';
-                miniCartBadge.style.display = 'none';
+                floatingCartBtn.style.display = 'none';
                 checkoutBtn.disabled = true;
             } else {
                 let html = '';
@@ -1701,8 +1731,9 @@
                 cartBody.innerHTML = html;
                 cartCount.textContent = count;
                 cartCount.style.display = 'flex';
-                miniCartCount.textContent = count;
-                miniCartBadge.style.display = 'flex';
+                floatingCartCount.textContent = count;
+                floatingCartCount.style.display = 'flex';
+                floatingCartBtn.style.display = 'flex';
                 cartTotal.textContent = total.toLocaleString('vi-VN') + '₫';
                 checkoutBtn.disabled = false;
             }
@@ -1746,74 +1777,104 @@
                 itemsText += `${item.name} x${item.quantity} - ${(item.price * item.quantity).toLocaleString('vi-VN')}₫\n`;
             });
 
-            // Gửi qua Google Forms
-            const formData = new FormData();
-            formData.append('entry.FIELD_ID_1', customerName); // Thay FIELD_ID_1
-            formData.append('entry.FIELD_ID_2', customerPhone); // Thay FIELD_ID_2
-            formData.append('entry.FIELD_ID_3', customerAddress); // Thay FIELD_ID_3
-            formData.append('entry.FIELD_ID_4', itemsText); // Thay FIELD_ID_4
-            formData.append('entry.FIELD_ID_5', total); // Thay FIELD_ID_5
-            formData.append('entry.FIELD_ID_6', customerNotes); // Thay FIELD_ID_6
+            // Gửi email qua Gmail API (sử dụng backend hoặc service)
+            const emailContent = `
+THÔNG TIN ĐƠN HÀNG MỚI
+========================
 
-            fetch(googleFormURL, {
+THÔNG TIN KHÁCH HÀNG:
+Họ Tên: ${customerName}
+Số Điện Thoại: ${customerPhone}
+Địa Chỉ: ${customerAddress}
+
+CHI TIẾT ĐƠN HÀNG:
+${itemsText}
+Tổng Tiền: ${total.toLocaleString('vi-VN')}₫
+
+GHI CHÚ:
+${customerNotes || '(Không có ghi chú)'}
+
+========================
+Thời gian: ${new Date().toLocaleString('vi-VN')}
+            `;
+
+            // Gửi email bằng cách mở mailto
+            const mailtoLink = `mailto:${customerEmail}?subject=Đơn Hàng Mới Từ Nước Mắm Cá Vàng&body=${encodeURIComponent(emailContent)}`;
+            
+            // Tạo form ẩn để gửi email
+            fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
                 method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            }).then(() => {
-                // Track purchase event
-                trackEvent('Purchase', {
-                    value: total,
-                    currency: 'VND',
-                    items: cart.length
-                });
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: customerName,
+                    phone: customerPhone,
+                    address: customerAddress,
+                    items: itemsText,
+                    total: total,
+                    notes: customerNotes,
+                    email: customerEmail
+                })
+            }).then(response => {
+                if (response.ok) {
+                    // Track purchase event
+                    trackEvent('Purchase', {
+                        value: total,
+                        currency: 'VND',
+                        items: cart.length
+                    });
 
-                // Hiển thị thông báo thành công
-                checkoutBtn.textContent = '📝 Đặt Ngay';
-                checkoutBtn.disabled = false;
-                
-                // Hiển thị thông báo
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, #C41E3A 0%, #8B1428 100%);
-                    color: white;
-                    padding: 20px 25px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
-                    z-index: 10000;
-                    font-weight: 600;
-                    animation: slideIn 0.3s ease;
-                    max-width: 350px;
-                `;
-                successMsg.innerHTML = `
-                    <div style="font-size: 18px; margin-bottom: 8px;">✓ Đặt hàng thành công!</div>
-                    <div style="font-size: 13px; opacity: 0.9;">Đơn hàng của bạn đã được gửi. Chúng tôi sẽ liên hệ với bạn sớm nhất.</div>
-                `;
-                document.body.appendChild(successMsg);
+                    // Hiển thị thông báo thành công
+                    checkoutBtn.textContent = '📝 Đặt Ngay';
+                    checkoutBtn.disabled = false;
+                    
+                    // Hiển thị thông báo
+                    const successMsg = document.createElement('div');
+                    successMsg.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #C41E3A 0%, #8B1428 100%);
+                        color: white;
+                        padding: 20px 25px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+                        z-index: 10000;
+                        font-weight: 600;
+                        animation: slideIn 0.3s ease;
+                        max-width: 350px;
+                    `;
+                    successMsg.innerHTML = `
+                        <div style="font-size: 18px; margin-bottom: 8px;">✓ Đặt hàng thành công!</div>
+                        <div style="font-size: 13px; opacity: 0.9;">Thông tin đơn hàng đã được gửi về email của chúng tôi. Chúng tôi sẽ liên hệ với bạn sớm nhất.</div>
+                    `;
+                    document.body.appendChild(successMsg);
 
-                // Xóa thông báo sau 3 giây
-                setTimeout(() => {
-                    successMsg.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 3000);
+                    // Xóa thông báo sau 3 giây
+                    setTimeout(() => {
+                        successMsg.style.animation = 'fadeOut 0.3s ease';
+                        setTimeout(() => successMsg.remove(), 300);
+                    }, 3000);
 
-                // Mở Zalo để khách hàng có thể liên hệ
-                setTimeout(() => {
-                    const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
-                    const encodedMessage = encodeURIComponent(zaloMessage);
-                    window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
-                }, 500);
+                    // Mở Zalo để khách hàng có thể liên hệ
+                    setTimeout(() => {
+                        const zaloMessage = `Xin chào, tôi vừa đặt hàng:\n\n${itemsText}\nTổng tiền: ${total.toLocaleString('vi-VN')}₫`;
+                        const encodedMessage = encodeURIComponent(zaloMessage);
+                        window.open(`https://zalo.me/0867678527?text=${encodedMessage}`, '_blank');
+                    }, 500);
 
-                // Xóa giỏ hàng
-                cart = [];
-                updateCart();
-                
-                // Đóng sidebar sau 2 giây
-                setTimeout(() => {
-                    toggleCart();
-                }, 2000);
+                    // Xóa giỏ hàng
+                    cart = [];
+                    updateCart();
+                    
+                    // Đóng sidebar sau 2 giây
+                    setTimeout(() => {
+                        toggleCart();
+                    }, 2000);
+                } else {
+                    throw new Error('Lỗi gửi email');
+                }
             }).catch(error => {
                 console.error('Lỗi gửi đơn hàng:', error);
                 checkoutBtn.textContent = '📝 Đặt Ngay';
