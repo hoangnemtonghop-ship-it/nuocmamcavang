@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nước Mắm Cá Vàng - Tinh túy từ Làng Sa Châu. Nước mắm truyền thống 100% tự nhiên, không chất bảo quản, được sản xuất theo công thức truyền thống qua nhiều thế hệ.">
-    <meta name="keywords" content="nước mắm, nước mắm cá vàng, nước mắm truyền thống, Sa Châu, Ninh Bình, nước mắm cốt">
+    <meta name="description" content="Nước Mắm Cá Vàng - Tinh túy từ Làng Sa Châu. Nước mắm truyền thống 100% tự nhiên, không chất bảo quản.">
     <title>Nước Mắm Cá Vàng - Tinh Túy Từ Làng Sa Châu</title>
     
     <!-- Facebook Pixel -->
@@ -66,96 +65,88 @@
             background-color: #FEFDFB;
         }
 
-        /* Header */
+        /* Header - Gọn gàng & Thân thiện */
         header {
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            padding: 12px 0;
+            padding: 16px 0;
             box-shadow: 0 2px 8px var(--shadow-light);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .header-top {
+        .header-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
-        }
-
-        .contact-info {
-            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
-            align-items: center;
         }
 
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.8;
-        }
-
-        .social-links {
+        .header-left {
             display: flex;
-            gap: 12px;
-        }
-
-        .social-links a {
-            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .header-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 30px;
+            flex: 1;
+            min-width: 300px;
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
 
         .logo-icon {
-            font-size: 32px;
+            font-size: 28px;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
 
         nav {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
             transition: opacity 0.3s;
         }
 
@@ -163,16 +154,40 @@
             opacity: 0.8;
         }
 
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            font-size: 12px;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
         .phone-btn {
             background-color: var(--primary-gold);
             color: var(--primary-red);
-            padding: 10px 22px;
-            border-radius: 25px;
+            padding: 8px 18px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
         }
 
         .phone-btn:hover {
@@ -184,7 +199,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -209,7 +224,7 @@
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 48px;
             margin-bottom: 8px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             font-weight: 700;
@@ -217,16 +232,16 @@
         }
 
         .hero .subtitle {
-            font-size: 26px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 18px;
             color: var(--primary-gold);
             font-weight: 600;
             letter-spacing: 0.5px;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 35px;
+            font-size: 16px;
+            margin-bottom: 30px;
             opacity: 0.95;
             line-height: 1.8;
             max-width: 700px;
@@ -245,11 +260,11 @@
             display: inline-block;
             background-color: var(--primary-gold);
             color: var(--primary-red);
-            padding: 16px 45px;
+            padding: 14px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             border: none;
@@ -280,7 +295,7 @@
 
         /* Section */
         .section {
-            padding: 70px 20px;
+            padding: 60px 20px;
             background-color: white;
             margin: 40px 0;
             border-radius: 12px;
@@ -292,42 +307,42 @@
         }
 
         .section h2 {
-            font-size: 38px;
+            font-size: 36px;
             color: var(--primary-red);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: center;
             border-bottom: 3px solid var(--primary-gold);
-            padding-bottom: 18px;
+            padding-bottom: 16px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
         .section h3 {
             color: var(--primary-red);
-            margin-top: 28px;
-            margin-bottom: 18px;
-            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 16px;
+            font-size: 20px;
             font-weight: 600;
         }
 
         .section p {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.8;
             color: var(--text-light);
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 45px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .product-card {
             background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
-            padding: 28px;
+            padding: 24px;
             border-radius: 12px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -335,6 +350,7 @@
             box-shadow: 0 2px 12px var(--shadow-light);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .product-card::before {
@@ -354,22 +370,22 @@
 
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--light-gold) 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 18px;
-            font-size: 80px;
+            margin-bottom: 16px;
+            font-size: 70px;
         }
 
         .product-card h3 {
             color: var(--primary-red);
-            margin-bottom: 12px;
-            font-size: 18px;
+            margin-bottom: 10px;
+            font-size: 17px;
             font-weight: 600;
-            min-height: 50px;
+            min-height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -377,58 +393,59 @@
 
         .product-card p {
             color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 16px;
-            min-height: 40px;
+            font-size: 13px;
+            margin-bottom: 14px;
+            min-height: 35px;
         }
 
         .product-specs {
-            font-size: 13px;
+            font-size: 12px;
             color: #999;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding: 8px 0;
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
         }
 
         .price {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--primary-red);
-            margin: 16px 0;
+            margin: 14px 0;
         }
 
         .price-old {
-            font-size: 16px;
+            font-size: 14px;
             color: #999;
             text-decoration: line-through;
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
         .discount-badge {
             display: inline-block;
             background: var(--primary-red);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 18px;
+            font-size: 11px;
             font-weight: 600;
-            margin-left: 8px;
+            margin-left: 6px;
         }
 
         .product-actions {
             display: flex;
-            gap: 10px;
-            margin-top: 18px;
+            gap: 8px;
+            margin-top: 16px;
         }
 
-        .product-actions a {
+        .product-actions a,
+        .product-actions button {
             flex: 1;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -456,27 +473,191 @@
 
         /* Category Section */
         .category-section {
-            margin-bottom: 50px;
+            margin-bottom: 45px;
         }
 
         .category-title {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--primary-red);
-            margin-bottom: 25px;
-            padding-bottom: 12px;
+            margin-bottom: 22px;
+            padding-bottom: 10px;
             border-bottom: 2px solid var(--primary-gold);
             font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-red);
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-red);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: opacity 0.3s;
+        }
+
+        .close-btn:hover {
+            opacity: 0.7;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--light-gold) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            margin-bottom: 25px;
+        }
+
+        .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .modal-section h3 {
+            color: var(--primary-red);
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .modal-section p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .modal-specs {
+            background: var(--cream);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .modal-specs p {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .modal-specs strong {
+            color: var(--primary-red);
+        }
+
+        .modal-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin: 20px 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-add {
+            background: var(--primary-gold);
+            color: var(--primary-red);
+        }
+
+        .modal-add:hover {
+            background: #C9A227;
+        }
+
+        .modal-order {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .modal-order:hover {
+            background: var(--dark-red);
         }
 
         /* Video Section */
         .video-section {
             text-align: center;
-            margin: 50px 0;
+            margin: 45px 0;
         }
 
         .video-container {
             max-width: 400px;
-            margin: 40px auto;
+            margin: 35px auto;
             aspect-ratio: 9 / 16;
             background: #000;
             border-radius: 15px;
@@ -494,16 +675,16 @@
         /* Form */
         .order-form {
             background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
-            padding: 45px;
-            border-radius: 15px;
+            padding: 40px;
+            border-radius: 12px;
             border: 2px solid var(--primary-gold);
-            max-width: 650px;
-            margin: 45px auto;
+            max-width: 600px;
+            margin: 40px auto;
             box-shadow: 0 4px 15px var(--shadow-light);
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -511,17 +692,17 @@
             margin-bottom: 8px;
             color: var(--primary-red);
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px 14px;
+            padding: 11px 13px;
             border: 2px solid var(--border-light);
-            border-radius: 8px;
-            font-size: 15px;
+            border-radius: 6px;
+            font-size: 14px;
             font-family: inherit;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -536,17 +717,17 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 110px;
+            min-height: 100px;
         }
 
         .submit-btn {
             width: 100%;
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            padding: 16px;
+            padding: 14px;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -561,14 +742,14 @@
         /* Contact Section */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 45px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .contact-item {
             background: linear-gradient(135deg, var(--light-gold) 0%, white 100%);
-            padding: 35px;
+            padding: 30px;
             border-radius: 12px;
             text-align: center;
             border: 2px solid var(--primary-gold);
@@ -581,16 +762,17 @@
 
         .contact-item h3 {
             color: var(--primary-red);
-            margin-bottom: 15px;
-            font-size: 18px;
+            margin-bottom: 12px;
+            font-size: 17px;
             margin-top: 0;
+            font-weight: 600;
         }
 
         .contact-item a {
             color: var(--primary-gold);
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             transition: color 0.3s;
         }
 
@@ -600,21 +782,21 @@
 
         .contact-item p {
             color: var(--text-light);
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 35px 20px;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 45px;
         }
 
         footer p {
-            margin-bottom: 12px;
-            font-size: 14px;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
 
         footer a {
@@ -630,87 +812,75 @@
         .footer-divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.2);
-            margin: 20px 0;
-        }
-
-        /* Features List */
-        .features-list {
-            list-style: none;
-            margin-left: 0;
-            margin-top: 20px;
-        }
-
-        .features-list li {
-            padding: 12px 0;
-            color: var(--text-light);
-            border-bottom: 1px solid var(--border-light);
-            font-size: 15px;
-        }
-
-        .features-list li:before {
-            content: "✓ ";
-            color: var(--primary-red);
-            font-weight: bold;
-            margin-right: 10px;
+            margin: 15px 0;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-                gap: 10px;
-                font-size: 12px;
+            .header-container {
+                gap: 12px;
             }
 
-            .contact-info {
-                gap: 10px;
-            }
-
-            .header-main {
-                flex-direction: column;
+            .header-left {
                 gap: 15px;
+                min-width: auto;
             }
 
             .logo {
-                font-size: 22px;
+                font-size: 18px;
+            }
+
+            .logo-icon {
+                font-size: 24px;
+            }
+
+            .header-contact {
+                gap: 12px;
+                font-size: 11px;
             }
 
             nav {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+                gap: 12px;
+                font-size: 12px;
             }
 
-            nav a {
-                font-size: 13px;
+            .phone-btn {
+                padding: 6px 14px;
+                font-size: 12px;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .hero .subtitle {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .hero p {
-                font-size: 15px;
+                font-size: 14px;
             }
 
             .section h2 {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .products-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .modal-content {
+                padding: 25px;
+                width: 95%;
             }
 
-            .cta-button {
-                width: 100%;
+            .modal-header h2 {
+                font-size: 22px;
+            }
+
+            .modal-image {
+                height: 250px;
+                font-size: 80px;
             }
 
             .order-form {
@@ -724,34 +894,33 @@
     </style>
 </head>
 <body>
-    <!-- Header Top -->
+    <!-- Header - Gọn Gàng -->
     <header>
-        <div class="header-top">
-            <div class="contact-info">
-                <a href="tel:0867678527">☎ 0867 678 527</a>
-                <a href="mailto:nuocmamcavangsachau@gmail.com">✉ nuocmamcavangsachau@gmail.com</a>
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">🐠</span>
+                    <span>Nước Mắm Cá Vàng</span>
+                </div>
+                <div class="header-contact">
+                    <a href="tel:0867678527">☎ 0867 678 527</a>
+                    <a href="mailto:nuocmamcavangsachau@gmail.com">✉ Email</a>
+                </div>
             </div>
-            <div class="social-links">
-                <a href="#" title="Facebook">f</a>
-                <a href="#" title="Instagram">📷</a>
-                <a href="#" title="TikTok">♪</a>
-                <a href="#" title="YouTube">▶</a>
-            </div>
-        </div>
-
-        <!-- Header Main -->
-        <div class="header-main">
-            <div class="logo">
-                <span class="logo-icon">🐠</span>
-                <span>Nước Mắm Cá Vàng</span>
-            </div>
-            <nav>
-                <a href="#home">Trang Chủ</a>
-                <a href="#products">Sản Phẩm</a>
-                <a href="#about">Về Chúng Tôi</a>
-                <a href="#contact">Liên Hệ</a>
+            <div class="header-right">
+                <nav>
+                    <a href="#home">Trang Chủ</a>
+                    <a href="#products">Sản Phẩm</a>
+                    <a href="#about">Về Chúng Tôi</a>
+                    <a href="#contact">Liên Hệ</a>
+                </nav>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="TikTok">♪</a>
+                </div>
                 <a href="tel:0867678527" class="phone-btn">☎ Gọi Ngay</a>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -760,7 +929,7 @@
         <div class="hero-content">
             <h1>Nước Mắm Cá Vàng</h1>
             <p class="subtitle">Tinh Túy Từ Làng Sa Châu</p>
-            <p>Nước mắm truyền thống chất lượng cao, công thức được truyền lại qua nhiều thế hệ, 100% tự nhiên, không chất bảo quản, được sản xuất theo quy trình lên men tự nhiên.</p>
+            <p>Nước mắm truyền thống chất lượng cao, công thức được truyền lại qua nhiều thế hệ, 100% tự nhiên, không chất bảo quản.</p>
             <div class="cta-buttons">
                 <a href="#products" class="cta-button">🛒 Khám Phá Sản Phẩm</a>
                 <a href="#order" class="cta-button cta-button-outline">📝 Đặt Hàng Ngay</a>
@@ -772,21 +941,8 @@
     <section class="section alt" id="about">
         <div class="container">
             <h2>Về Nước Mắm Cá Vàng</h2>
-            <p>Nước Mắm Cá Vàng là sản phẩm nước mắm truyền thống được sản xuất tại <strong>Làng Sa Châu, Giao Hưng, Ninh Bình</strong> - một vùng đất có truyền thống sản xuất nước mắm lâu đời, nơi mà công thức nấu ướp được truyền lại qua nhiều thế hệ.</p>
-            
+            <p>Nước Mắm Cá Vàng là sản phẩm nước mắm truyền thống được sản xuất tại <strong>Làng Sa Châu, Giao Hưng, Ninh Bình</strong> - một vùng đất có truyền thống sản xuất nước mắm lâu đời.</p>
             <p>Chúng tôi sử dụng những nguyên liệu tươi sạch được chọn lọc kỹ lưỡng, kết hợp với công thức nấu ướp truyền thống. Mỗi chai nước mắm đều trải qua quá trình lên men tự nhiên kéo dài, không sử dụng bất kỳ chất bảo quản hay hóa chất nhân tạo nào.</p>
-            
-            <p>Hương vị đặc trưng của Nước Mắm Cá Vàng không chỉ làm tăng thêm hương vị cho các món ăn, mà còn mang theo những ký ức về ẩm thực truyền thống Việt Nam. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao nhất.</p>
-
-            <h3>Cam Kết Của Chúng Tôi</h3>
-            <ul class="features-list">
-                <li>100% tự nhiên, không chất bảo quản hay hóa chất nhân tạo</li>
-                <li>Công thức truyền thống được bảo vệ qua nhiều thế hệ</li>
-                <li>Lên men tự nhiên, đạt tiêu chuẩn chất lượng cao</li>
-                <li>Hỗ trợ khách hàng tận tâm 24/7</li>
-                <li>Giao hàng nhanh, an toàn trên toàn quốc</li>
-                <li>Đóng gói cẩn thận, bảo vệ sản phẩm tối đa</li>
-            </ul>
         </div>
     </section>
 
@@ -795,133 +951,396 @@
         <div class="container">
             <h2>Sản Phẩm Của Chúng Tôi</h2>
 
-            <!-- Category 1: Nước Mắm Cốt -->
+            <!-- Category 1 -->
             <div class="category-section">
                 <h3 class="category-title">🍶 Nước Mắm Cốt Đặc Biệt</h3>
                 <div class="products-grid">
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product1')">
                         <div class="product-image">🍶</div>
                         <h3>Nước Mắm Cốt 500ml</h3>
                         <p>Cốt đặc biệt, lên men lâu, hương vị đậm đà</p>
                         <div class="product-specs">Chai thủy tinh 500ml</div>
                         <div class="price">85.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Nước Mắm Cốt 500ml')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product1')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product2')">
                         <div class="product-image">🍶</div>
                         <h3>Nước Mắm Cốt 1 Lít</h3>
                         <p>Kích thước tiêu chuẩn, phù hợp cho gia đình</p>
                         <div class="product-specs">Chai thủy tinh 1 lít</div>
                         <div class="price">150.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Nước Mắm Cốt 1 Lít')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product2')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product3')">
                         <div class="product-image">🍶</div>
                         <h3>Nước Mắm Cốt 1L (Cao Cấp)</h3>
                         <p>Chất lượng cao nhất, lên men 2+ năm</p>
                         <div class="product-specs">Chai thủy tinh cao cấp 1 lít</div>
                         <div class="price"><span class="price-old">180.000₫</span>160.000₫<span class="discount-badge">-11%</span></div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Nước Mắm Cốt 1L Cao Cấp')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product3')">Chi Tiết</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Category 2: Combo & Quà Tặng -->
+            <!-- Category 2 -->
             <div class="category-section">
                 <h3 class="category-title">🎁 Combo & Quà Tặng</h3>
                 <div class="products-grid">
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product4')">
                         <div class="product-image">🎁</div>
                         <h3>Combo 2 Chai 500ml</h3>
                         <p>Tiết kiệm hơn, tặng bạn bè hoặc gia đình</p>
                         <div class="product-specs">2 chai × 500ml</div>
                         <div class="price"><span class="price-old">170.000₫</span>150.000₫<span class="discount-badge">-12%</span></div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Combo 2 Chai 500ml')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product4')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product5')">
                         <div class="product-image">🎁</div>
                         <h3>Combo 2 Chai 1 Lít</h3>
                         <p>Bộ quà tặng sang trọng cho doanh nghiệp</p>
                         <div class="product-specs">2 chai × 1 lít, hộp quà</div>
                         <div class="price"><span class="price-old">320.000₫</span>280.000₫<span class="discount-badge">-13%</span></div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Combo 2 Chai 1 Lít')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product5')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product6')">
                         <div class="product-image">🎁</div>
                         <h3>Hộp Quà Cao Cấp 3 Chai</h3>
                         <p>Bộ quà tặng đặc biệt, hộp thiết kế sang trọng</p>
                         <div class="product-specs">3 chai × 500ml, hộp quà cao cấp</div>
                         <div class="price">280.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Hộp Quà Cao Cấp 3 Chai')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product6')">Chi Tiết</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Category 3: Sản Phẩm Khác -->
+            <!-- Category 3 -->
             <div class="category-section">
                 <h3 class="category-title">🌶️ Sản Phẩm Khác</h3>
                 <div class="products-grid">
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product7')">
                         <div class="product-image">🌶️</div>
                         <h3>Mắm Ruốc Xào</h3>
                         <p>Ăn liền, tiện lợi, hương vị đặc biệt</p>
                         <div class="product-specs">Hũ 200g</div>
                         <div class="price">65.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Mắm Ruốc Xào')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product7')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product8')">
                         <div class="product-image">🌶️</div>
                         <h3>Mắm Tôm Ngon</h3>
                         <p>Mắm tôm truyền thống, hương vị đậm đà</p>
                         <div class="product-specs">Hũ 280ml</div>
                         <div class="price">55.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Mắm Tôm Ngon')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product8')">Chi Tiết</button>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" onclick="openModal('product9')">
                         <div class="product-image">🌶️</div>
                         <h3>Gia Vị Hoàn Chỉnh</h3>
                         <p>Gia vị nêm sẵn cho các món ăn</p>
                         <div class="product-specs">Hũ 100g</div>
                         <div class="price">45.000₫</div>
                         <div class="product-actions">
-                            <a href="#order" class="product-actions btn-add">+ Thêm</a>
-                            <a href="#" class="product-actions btn-detail">Chi Tiết</a>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart('Gia Vị Hoàn Chỉnh')">+ Thêm</button>
+                            <button class="btn-detail" onclick="event.stopPropagation(); openModal('product9')">Chi Tiết</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Product Detail Modals -->
+    <div id="product1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nước Mắm Cốt 500ml</h2>
+                <button class="close-btn" onclick="closeModal('product1')">&times;</button>
+            </div>
+            <div class="modal-image">🍶</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Nước mắm cốt đặc biệt được sản xuất từ những nguyên liệu tươi sạch nhất, lên men tự nhiên theo công thức truyền thống. Hương vị đậm đà, mùi thơm đặc trưng của nước mắm truyền thống.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 500ml</p>
+                <p><strong>Loại chai:</strong> Thủy tinh cao cấp</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Hạn sử dụng:</strong> 3 năm từ ngày sản xuất</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống như: nước chấm, canh, nước dùng, gia vị nêm cho các món cơm, mì, canh...</p>
+            </div>
+            <div class="modal-price">85.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Nước Mắm Cốt 500ml'); closeModal('product1')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product1')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nước Mắm Cốt 1 Lít</h2>
+                <button class="close-btn" onclick="closeModal('product2')">&times;</button>
+            </div>
+            <div class="modal-image">🍶</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Kích thước 1 lít phù hợp cho gia đình, với cùng chất lượng cao của nước mắm cốt đặc biệt. Tiết kiệm hơn so với mua từng chai nhỏ.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 1 lít</p>
+                <p><strong>Loại chai:</strong> Thủy tinh cao cấp</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Hạn sử dụng:</strong> 3 năm từ ngày sản xuất</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price">150.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Nước Mắm Cốt 1 Lít'); closeModal('product2')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product2')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nước Mắm Cốt 1L (Cao Cấp)</h2>
+                <button class="close-btn" onclick="closeModal('product3')">&times;</button>
+            </div>
+            <div class="modal-image">🍶</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Dòng sản phẩm cao cấp nhất, lên men tự nhiên từ 2+ năm, hương vị sâu sắc, mùi thơm đặc biệt. Phù hợp cho những người yêu thích nước mắm chất lượng cao.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 1 lít</p>
+                <p><strong>Loại chai:</strong> Thủy tinh cao cấp</p>
+                <p><strong>Lên men:</strong> 2+ năm</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Hạn sử dụng:</strong> 3-5 năm từ ngày sản xuất</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price"><span class="price-old">180.000₫</span>160.000₫<span class="discount-badge">-11%</span></div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Nước Mắm Cốt 1L Cao Cấp'); closeModal('product3')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product3')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Combo 2 Chai 500ml</h2>
+                <button class="close-btn" onclick="closeModal('product4')">&times;</button>
+            </div>
+            <div class="modal-image">🎁</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Combo tiết kiệm gồm 2 chai nước mắm cốt 500ml. Phù hợp để tặng bạn bè, gia đình hoặc sử dụng cá nhân.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Số lượng:</strong> 2 chai × 500ml</p>
+                <p><strong>Loại chai:</strong> Thủy tinh cao cấp</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Tiết kiệm:</strong> 20.000₫ so với mua lẻ</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price"><span class="price-old">170.000₫</span>150.000₫<span class="discount-badge">-12%</span></div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Combo 2 Chai 500ml'); closeModal('product4')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product4')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Combo 2 Chai 1 Lít</h2>
+                <button class="close-btn" onclick="closeModal('product5')">&times;</button>
+            </div>
+            <div class="modal-image">🎁</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Bộ quà tặng sang trọng gồm 2 chai nước mắm cốt 1 lít, được đóng gói trong hộp quà đẹp mắt. Phù hợp để tặng doanh nghiệp, khách hàng hoặc người thân.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Số lượng:</strong> 2 chai × 1 lít</p>
+                <p><strong>Đóng gói:</strong> Hộp quà cao cấp</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Tiết kiệm:</strong> 40.000₫ so với mua lẻ</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price"><span class="price-old">320.000₫</span>280.000₫<span class="discount-badge">-13%</span></div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Combo 2 Chai 1 Lít'); closeModal('product5')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product5')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Hộp Quà Cao Cấp 3 Chai</h2>
+                <button class="close-btn" onclick="closeModal('product6')">&times;</button>
+            </div>
+            <div class="modal-image">🎁</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Bộ quà tặng đặc biệt gồm 3 chai nước mắm cốt 500ml, được đóng gói trong hộp quà thiết kế sang trọng. Phù hợp cho các dịp đặc biệt, tết, kỷ niệm.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Số lượng:</strong> 3 chai × 500ml</p>
+                <p><strong>Đóng gói:</strong> Hộp quà cao cấp</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Phù hợp cho:</strong> Quà tặng, kỷ niệm, tết</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Sử dụng trong các món ăn truyền thống. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price">280.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Hộp Quà Cao Cấp 3 Chai'); closeModal('product6')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product6')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product7" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mắm Ruốc Xào</h2>
+                <button class="close-btn" onclick="closeModal('product7')">&times;</button>
+            </div>
+            <div class="modal-image">🌶️</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Mắm ruốc xào ăn liền, tiện lợi, hương vị đặc biệt. Có thể ăn trực tiếp hoặc dùng làm gia vị cho các món ăn.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 200g</p>
+                <p><strong>Loại đóng gói:</strong> Hũ thủy tinh</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Cách ăn:</strong> Ăn liền hoặc làm gia vị</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Có thể ăn trực tiếp với cơm hoặc dùng làm gia vị cho các món canh, mì, cơm. Bảo quản nơi thoáng mát sau khi mở.</p>
+            </div>
+            <div class="modal-price">65.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Mắm Ruốc Xào'); closeModal('product7')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product7')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mắm Tôm Ngon</h2>
+                <button class="close-btn" onclick="closeModal('product8')">&times;</button>
+            </div>
+            <div class="modal-image">🌶️</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Mắm tôm truyền thống, hương vị đậm đà, được sản xuất theo công thức truyền thống. Phù hợp cho các món ăn truyền thống như bún đậu, chả cá.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 280ml</p>
+                <p><strong>Loại đóng gói:</strong> Hũ thủy tinh</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Phù hợp cho:</strong> Bún đậu, chả cá, nước chấm</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Dùng làm nước chấm cho bún đậu, chả cá hoặc các món ăn khác. Bảo quản nơi thoáng mát sau khi mở.</p>
+            </div>
+            <div class="modal-price">55.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Mắm Tôm Ngon'); closeModal('product8')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product8')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="product9" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Gia Vị Hoàn Chỉnh</h2>
+                <button class="close-btn" onclick="closeModal('product9')">&times;</button>
+            </div>
+            <div class="modal-image">🌶️</div>
+            <div class="modal-section">
+                <h3>Mô Tả Sản Phẩm</h3>
+                <p>Gia vị nêm sẵn cho các món ăn, được pha chế từ những nguyên liệu tự nhiên. Tiện lợi sử dụng, chỉ cần thêm vào các món ăn.</p>
+            </div>
+            <div class="modal-specs">
+                <p><strong>Kích thước:</strong> 100g</p>
+                <p><strong>Loại đóng gói:</strong> Hũ thủy tinh</p>
+                <p><strong>Thành phần:</strong> 100% tự nhiên, không chất bảo quản</p>
+                <p><strong>Cách sử dụng:</strong> Nêm sẵn cho các món ăn</p>
+            </div>
+            <div class="modal-section">
+                <h3>Cách Sử Dụng</h3>
+                <p>Thêm vào các món cơm, canh, mì, nước dùng. Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp.</p>
+            </div>
+            <div class="modal-price">45.000₫</div>
+            <div class="modal-actions">
+                <button class="modal-add" onclick="addToCart('Gia Vị Hoàn Chỉnh'); closeModal('product9')">+ Thêm Vào Giỏ</button>
+                <button class="modal-order" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'}); closeModal('product9')">📝 Đặt Hàng Ngay</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Video Section -->
     <section class="section alt video-section">
@@ -957,7 +1376,7 @@
                         <option value="">-- Chọn sản phẩm --</option>
                         <option value="Nước Mắm Cốt 500ml - 85.000₫">Nước Mắm Cốt 500ml - 85.000₫</option>
                         <option value="Nước Mắm Cốt 1 Lít - 150.000₫">Nước Mắm Cốt 1 Lít - 150.000₫</option>
-                        <option value="Nước Mắm Cốt 1L (Cao Cấp) - 160.000₫">Nước Mắm Cốt 1L (Cao Cấp) - 160.000₫</option>
+                        <option value="Nước Mắm Cốt 1L Cao Cấp - 160.000₫">Nước Mắm Cốt 1L Cao Cấp - 160.000₫</option>
                         <option value="Combo 2 Chai 500ml - 150.000₫">Combo 2 Chai 500ml - 150.000₫</option>
                         <option value="Combo 2 Chai 1 Lít - 280.000₫">Combo 2 Chai 1 Lít - 280.000₫</option>
                         <option value="Hộp Quà Cao Cấp 3 Chai - 280.000₫">Hộp Quà Cao Cấp 3 Chai - 280.000₫</option>
@@ -1013,6 +1432,25 @@
     </footer>
 
     <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Track events with pixels
         function trackEvent(eventName, eventData = {}) {
             if (typeof fbq !== 'undefined') {
@@ -1024,6 +1462,15 @@
             if (typeof ttq !== 'undefined') {
                 ttq.track(eventName, eventData);
             }
+        }
+
+        // Add to cart
+        function addToCart(productName) {
+            trackEvent('AddToCart', {
+                content_name: productName,
+                content_type: 'product'
+            });
+            alert('✓ Đã thêm ' + productName + ' vào giỏ hàng!');
         }
 
         // Handle form submission
